@@ -8,6 +8,12 @@ export default Route.extend({
     actions: {
         clear(model) {
             model.set('content', '');
+        },
+        visible(model, value){
+            console.log(value);
+        },
+        invisible(model, value){
+            console.log('changer');
         }
     }
 });

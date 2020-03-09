@@ -8,14 +8,17 @@ export default EmberObject.extend({
   }),
   style: computed('size', function(){
     let size =this.get('size');
-    if (size > 75) {
+    if (size > 50) {
       return 'positive';
-    } else if (size > 40) {
-      return 'info';
-    } else if (size > 10) {
+    } else if (size > 20) {
       return 'warning';
     } else {
-      return 'negative'
+      return 'negative';
     }
+  }),
+  visible: 'hidden',
+  style_info: 'info',
+  msg_info: computed('content', function() {
+    return 'modified message';
   })
 });

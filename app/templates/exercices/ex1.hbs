@@ -1,0 +1,17 @@
+
+<div class="ui container segment">
+    <div class="ui header">Note</div>
+    <div class="ui form">
+        <Input class="ui input" @value={{model.content}} @maxlength={{model.MAX}} {{action "visible" model target.value on="keyDown"}} {{action "invisible" model on="keyUp"}}></Input>
+    </div>
+    <button {{action 'clear' model}} class="ui button icon"><i class="trash alternate outline icon"></i>Clear field</button>
+    <div class="ui message {{model.style}}">
+        {{model.size}} characters left.
+    </div>
+    <div class="ui {{model.visible}} {{model.style_info}} message">
+        {{model.msg_info}}
+    </div>
+</div>
+
+
+{{outlet}}

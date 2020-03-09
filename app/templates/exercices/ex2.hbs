@@ -1,0 +1,12 @@
+<div class="ui container segment">
+    <div class="ui header">Services</div>
+    <ul>
+        {{#each model.services as |service|}}
+        <li><button class="ui button {{if service.active "positive" ""}}" {{action 'toggleActive' service}}>{{service.name}}</button></li>
+        {{/each}}
+    </ul>
+
+</div>
+
+
+{{outlet}}

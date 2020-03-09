@@ -1,0 +1,14 @@
+
+<div class="ui container segment">
+    <div class="ui header">Note</div>
+    <div class="ui form">
+        <Input class="ui input" @value={{model.content}} @maxlength={{model.MAX}}></Input>
+    </div>
+    <button {{action 'clear' model}} class="ui button icon"><i class="ui clear"></i></button>
+    <div class="ui message {{model.style}}">
+        il vous reste {{model.size}} characteres
+    </div>
+</div>
+
+
+{{outlet}}

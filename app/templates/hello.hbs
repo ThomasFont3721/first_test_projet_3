@@ -1,0 +1,21 @@
+<div class="ui input focus">
+    <Input @value={{this.nom}} placeholder="nom" />
+</div>
+<div class="ui container segment">
+    <h2 class="ui header">
+        <i class="circular users icon"></i>
+        {{model.nom}}
+    </h2>
+    <div>{{model.details}}</div>
+</div>
+
+<LinkTo {{action "changeName" model this.nom}} class="ui right labeled icon button" @route="hello.suite">
+  <i class="right arrow icon"></i>
+  ChangeName
+</LinkTo>
+
+<LinkTo class="ui right labeled icon button" @route="hello.suite">
+  <i class="right arrow icon"></i>
+  Suite...
+</LinkTo>
+{{outlet}}

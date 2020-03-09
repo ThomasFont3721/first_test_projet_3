@@ -2,22 +2,25 @@ import EmberObject, { computed } from '@ember/object';
  
 export default EmberObject.extend({
   services: [],
-  countActive: computed('services', function(){
-    var count =0;
-    this.get('services').forEach(element => {
-      if (element.active) { 
-        count = count+1;
-      }
-    });
-    return count;
+  countActive: computed('services.@each.active', function(){
+    return this.get('services').filterBy('active', true).length;
   }),
-  sumActive: computed('services', function() {
+  sumActive: computed('services.@each.active', function() {
     var price = 0;
-    this.get('services').forEach(element => {
-      if (element.active) { 
-        price = price+element.price;
-      }
+    this.get('services').filterBy('active', true).forEach(element => {
+      price = price+element.price;
     });
     return price;
-  })
+  }),
+  checkedPromo: false,
+  visiblePromo: computed('checkedPromo', function(){
+      if (this.get('checkedPromo')) {
+          console.log('visible');
+          
+          return 'visible';
+      } else {
+          console.log('hidden');
+          return 'hidden';
+      }
+  }),
 });

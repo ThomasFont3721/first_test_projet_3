@@ -9,8 +9,8 @@ export default Route.extend({
         clear(model) {
             model.set('content', '');
         },
-        visible(model, value){
-            console.log(value);
+        visible(model){
+            console.log(model);
         },
         invisible(model, value){
             console.log('changer');

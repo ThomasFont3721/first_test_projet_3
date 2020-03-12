@@ -13,6 +13,7 @@ Router.map(function () {
   this.route('exercices', function () {
     this.route('ex1');
     this.route('ex2');
+    this.route('ex3');
   });
 });
 

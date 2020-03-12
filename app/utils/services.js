@@ -15,11 +15,8 @@ export default EmberObject.extend({
   checkedPromo: false,
   visiblePromo: computed('checkedPromo', function(){
       if (this.get('checkedPromo')) {
-          console.log('visible');
-          
           return 'visible';
       } else {
-          console.log('hidden');
           return 'hidden';
       }
   }),

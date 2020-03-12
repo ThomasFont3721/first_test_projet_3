@@ -1,10 +1,10 @@
-
 <div class="ui container segment">
-    <div class="ui header">Note</div>
+    <h1 class="ui header">Notes</h1>
     <div class="ui form">
         <Input class="ui input" @value={{model.content}} @maxlength={{model.MAX}} {{action "visible" model}}></Input>
     </div>
-    <button {{action 'clear' model}} class="ui button icon"><i class="trash alternate outline icon"></i>Clear field</button>
+    <button {{action 'clear' model}} class="ui button icon"><i class="trash alternate outline icon"></i>Clear
+        field</button>
     <div class="ui message {{model.style}}">
         {{model.size}} characters left.
     </div>

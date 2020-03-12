@@ -1,6 +1,6 @@
 <div class="ui container segment">
 
-    <div class="ui header">Services</div>
+    <h1 class="ui header">Services</h1>
     <div class="ui label">Nombre de service selectionné : </div>
     <b>{{pluralize model.countActive "Aucun service selectionné" "1 service sélectionné" " services sélectionnés"}}</b>
 
@@ -19,20 +19,20 @@
     <span class="ui big text">Total : {{model.sumActive}}€</span>
     <div class="ui divider"></div>
     <div class="ui checkbox">
-        <Input type="checkbox" @checked={{model.checkedPromo}}></Input>
+        <Input @type="checkbox" @checked={{model.checkedPromo}} />
         <label>Utiliser un code promo</label>
     </div>
     <div class="ui message {{model.visiblePromo}}">
-    <div class="ui action input" data-children-count="1">
-        <Input type="text" @value={{model.codePromo}}></Input>
-        <button class="ui teal icon button">
-            <i class="cart icon"></i>
-        </button>
-    </div>
-    <br>
-    <br>
-    <span class="ui large text">Réduction : {{model.sumActive}}€</span><br>
-    <span class="ui large text">Total : {{model.sumActive}}€</span>
+        <div class="ui action input" data-children-count="1">
+            <Input type="text" @value={{model.codePromo}}></Input>
+            <button class="ui teal icon button">
+                <i class="cart icon"></i>
+            </button>
+        </div>
+        <br>
+        <br>
+        <span class="ui large text">Réduction : {{calculate-reduc model}}€</span><br>
+        <span class="ui large text">Total : {{model.sumActive}}€</span>
     </div>
 
 </div>

@@ -8,6 +8,9 @@ export default Controller.extend({
         },
         promo(text) {
             
+        },
+        showHideCB(model) {
+            model.set('checkedPromo', !model.get('checkedPromo'))
         }
     }
 });

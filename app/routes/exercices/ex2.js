@@ -25,7 +25,6 @@ export default Route.extend({
                     }
                 ],
                 codePromo: '',
-                
                 promos: {
                     "B22":0.05,
                     "AZ":0.01,

@@ -1,0 +1,61 @@
+<div class="ui container segment">
+    <h1 class="ui header">list des contacts</h1>
+    <table class="ui table">
+        <tr>
+            <th>Name</th>
+            <th>First name</th>
+            <th>Email</th>
+            <th class="right aligned">Delete</th>
+            <th class="right aligned">Edit</th>
+        </tr>
+        {{#each model.datas as |contact|}}
+        <tr>
+            <td class="ui {{if contact.isDeleted 'disabled' ''}}">{{contact.nom}}</td>
+            <td class="ui {{if contact.isDeleted 'disabled' ''}}">{{contact.prenom}}</td>
+            <td class="ui {{if contact.isDeleted 'disabled' ''}}">{{contact.email}}</td>
+            <td class="ui right aligned">
+                <button class="btn btn-warning" {{action "deleteContact" contact model}}>
+                    <i class="{{if contact.isDeleted 'trash restore' 'user minus'}} icon"></i>
+                </button>
+            </td>
+            <td class="right aligned ui {{if contact.isDeleted 'disabled' ''}}">
+                <button class="btn btn-info ui {{if contact.isDeleted 'disabled' ''}}" {{action "showEditContact" contact model}}>
+                    <i class="user edit icon"></i>
+                </button>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+    <button class="btn btn-primary" {{action "showAddContact" model}}><i class="user plus icon"></i>
+        Addcontact</button>
+    {{#if model.deletedsCount}}
+    <button class="btn btn-warning" {{action "cancelDeleteForever" model}}><i class="trash restore icon"></i>
+        cancel delete</button>
+    <button class="btn btn-danger" {{action "deleteForeverContact" model}}><i class="user times icon"></i>
+        Delete forever</button>
+    {{/if}}
+
+    <div class="ui message {{if model.visibilityAdd "visible" "hidden"}} ">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Nom :</span>
+            </div>
+            <Input type="text" class="form-control" aria-describedby="basic-addon3" @value={{model.nom}} />
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Prénom :</span>
+            </div>
+            <Input type="text" class="form-control" aria-describedby="basic-addon3" @value={{model.prenom}} />
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Email :</span>
+            </div>
+            <Input type="text" class="form-control" aria-describedby="basic-addon3" @value={{model.email}} />
+        </div>
+        <button class="btn {{if model.edit "btn-info" "btn-primary"}} " {{action "addContact" model}}><i
+                class="user {{if model.edit "edit" "plus"}} icon"></i> Save</button>
+    </div>
+</div>
+{{outlet}}
